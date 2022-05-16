@@ -1,4 +1,4 @@
-# Master Thesis Code, provided by Jakob Jakob Meldgaard & Alexandros Bøgeskov-Tsoronis
+# Master Thesis Code, provided by Jakob Meldgaard & Alexandros Bøgeskov-Tsoronis
 
 Our Master Thesis is titled **Are Arbitrage-Free conditions on the Popular
 Nelson-Siegel Model Practical?** and is about the implementation of the Arbitrage Free Nelson Siegel (AFNS).
