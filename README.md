@@ -19,7 +19,7 @@ Apart from a standard Anaconda Python 3 installation (Version 4.12.0, with no si
 ``pip install QuantLib``
 
 **Other dependencies can be downloaded from this repository like yield_adj_term.py, Chart.py etc.**
-**Anaconda Python 3 installation includes NumPy, pandas, scipy, matplotlib, and sklearn which are used in the above modules**
+**Anaconda Python 3 installation includes NumPy, pandas, scipy, matplotlib, and sklearn which are used in the above modules.**
 
 **Possible improvements:**
 
