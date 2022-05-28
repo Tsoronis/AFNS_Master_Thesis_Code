@@ -4,7 +4,7 @@ def AFNS_yieldadjterm(s11,s12,s13,s21,s22,s23,s31,s32,s33,l,t):
     """
     Yield Adjustment Term 
     ----------
-    s11,..,s33: floats
+    s11,...,s33: floats
         variances from the volatility matrix
     l: float
         lambda (constant) "mean-reversion rate of the
