@@ -225,7 +225,7 @@ calendar = ql.Germany() # germany? yes danish swaps follow this calaender
 zeros = [] # empty list
 deposits = ['3M', '6M'] # tenors
 swaps = ['1Y','2Y','3Y', '4Y', '5Y', '6Y', '7Y', '8Y', '9Y', '10Y', '15Y', '20Y', '30Y'] # tenors
-spread = ql.QuoteHandle(ql.SimpleQuote(0.005)) 
+spread = ql.QuoteHandle(ql.SimpleQuote(0.005)) # handle float 6m
 for row in DanishDepSwapRates:
     curve_date = ql.Date(row['Date'][:30], '%Y-%m-%d') # get curve date
     ql.Settings.instance().evaluationDate = curve_date 
@@ -279,16 +279,16 @@ t0 = list(zero_rates_no_date.columns)
 
 
 # create random guess from the constrained guesser for loop
-ini_guess_famabliss = cg.random_constrained_geuss(t=t0)
+ini_guess = cg.random_constrained_geuss(t=t0)
 
 
-# ---- AFNS results famablisss data ----#
-in_AFNS_famabliss = independent_AFNS(par_guess = ini_guess_famabliss, zcb_yield = zero_rates_no_date)
+# ---- AFNS results danish data ----#
+in_AFNS_res independent_AFNS(par_guess = ini_guess, zcb_yield = zero_rates_no_date)
 
 
 # ---- maximize log likelihood ---- #
 start_time = time.time() # see time of optim
-max_log_like = minimize(independent_AFNS, x0=ini_guess_famabliss,args=(zero_rates_no_date),method='Nelder-Mead', 
+max_log_like = minimize(independent_AFNS, x0=ini_guess,args=(zero_rates_no_date),method='Nelder-Mead', 
                                                                 options = {'disp':True,'maxiter':100000})
 print("--- %s seconds ---" % (time.time() - start_time))
 max_log_like.x # optimal para
@@ -384,11 +384,11 @@ rmsfe_table = rmsfe_table.mean()
 def fun_der(par_guess, zcb_yield):
     return Jacobian(lambda par_guess: independent_AFNS(par_guess, zcb_yield))(par_guess).ravel()
 
-degrees_free = len(zero_rates_no_date)-len(ini_guess_famabliss)
+degrees_free = len(zero_rates_no_date)-len(ini_guess)
 grad = fun_der(x, zero_rates_no_date)
-grad = np.array(grad).reshape(26,1)
-vcv = grad.dot(np.transpose(grad))
-se = np.sqrt(abs(np.diag(vcv)))
+grad = np.array(grad).reshape(25,1)
+hess = np.inv(grad.dot(np.transpose(grad)))
+se = np.sqrt(np.diag(hess))
 se
 
 #kappa matrix
@@ -406,9 +406,9 @@ x
 
 #independent optim
 log_max_array = []
-for i in range(0,50):
-    ini_guess_famabliss = cg.random_constrained_geuss(t=t0)
-    max_log_like_test = minimize(independent_AFNS, x0=ini_guess_famabliss,args=(zero_rates_no_date),method='Nelder-Mead', 
+for i in range(0,40):
+    ini_guess = cg.random_constrained_geuss(t=t0)
+    max_log_like_test = minimize(independent_AFNS, x0=ini_guess,args=(zero_rates_no_date),method='Nelder-Mead', 
                                                                 options = {'disp':True,'maxiter':50000})
     log_max = max_log_like.fun
     log_max_array = np.append(log_max_array,log_max)
