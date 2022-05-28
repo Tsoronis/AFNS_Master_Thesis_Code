@@ -2,7 +2,7 @@
 
 Our Master Thesis is titled **A Technical Analysis of the Arbitrage-Free
 Nelson-Siegel Model**, a hands-on implementation of the Arbitrage Free Nelson Siegel (AFNS).
-We explain the model in depth, implement it with the use of python & test it in a Danish setting.
+We explain the model in depth, implement it with the use of python and test it in a Danish setting.
 The code can replicate the results from the original paper using the same data set fairly accurate (see reference below).
 
 **main_fama_bliss & main_danish**:
