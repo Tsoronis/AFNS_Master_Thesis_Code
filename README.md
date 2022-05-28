@@ -6,11 +6,14 @@ We explain the model in depth, implement it with the use of python and test it i
 The code can replicate the results from the original paper using the same data set fairly accurate (see reference below).
 
 **main_fama_bliss & main_danish**:
+
 These modules are as the name indicates, the main python files to execute the model.
 They load datasets CRSP & Bloomberg respectively. Both are licensed data sources, thus
 one needs access to both in order to replicate the data (we provide precise explanations, index names and date of data in the master thesis)
 
-**Dependencies:** Apart from a standard Anaconda Python 3 installation, the project requires the following installations:
+**Dependencies:** 
+
+Apart from a standard Anaconda Python 3 installation, the project requires the following installations:
 
 ``conda install -c conda-forge numdifftools``
 ``pip install QuantLib``
@@ -19,6 +22,7 @@ one needs access to both in order to replicate the data (we provide precise expl
 **Anaconda Python 3 installation includes NumPy, pandas, scipy and sklearn which are used in the above modules**
 
 **Possible improvements**:
+
 The main caveat is, that it is difficult to find convergence in the maximum likelihood estimation and
 the selected Nelder-Mead algorithm is time-consuming. Thus we suggest trying other algorithms and 
 testing whether more restrictions to the model could help the robustness of estimation.
