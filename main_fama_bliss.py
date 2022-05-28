@@ -17,7 +17,7 @@ import Chart as ch
 
 
 # model and notation inspired by
-# Christensen, J., Diebold, F. & Rudebuscha, G., (2011):
+# Christensen, J., Diebold, F. & Rudebusch, G., (2011):
 # "The affine arbitrage-free class of Nelson–Siegel term structure models", 
 # Journal of Econometrics 164(2011), 4-20.
 
@@ -381,8 +381,8 @@ def fun_der(par_guess, zcb_yield):
 degrees_free = len(df_no_date)-len(ini_guess_famabliss)
 grad = fun_der(x, df_no_date)
 grad = np.array(grad).reshape(26,1)
-vcv = grad.dot(np.transpose(grad))
-se = np.sqrt(abs(np.diag(vcv)))
+hess = np.inv(grad.dot(np.transpose(grad)))
+se = np.sqrt(np.diag(hess))
 se
 
 #kappa matrix
@@ -400,7 +400,7 @@ x
 
 #independent optim
 log_max_array = []
-for i in range(0,50):
+for i in range(0,40):
     ini_guess_famabliss = cg.random_constrained_geuss(t=t0)
     max_log_like_test = minimize(independent_AFNS, x0=ini_guess_famabliss,args=(df_no_date),method='Nelder-Mead', 
                                                                 options = {'disp':True,'maxiter':50000})
@@ -408,5 +408,5 @@ for i in range(0,50):
     log_max_array = np.append(log_max_array,log_max)
     
 convergence = pd.DataFrame(log_max_array)
-file_name = 'convergence.xlsx'
+file_name = 'convergence_fama.xlsx'
 convergence.to_excel(file_name)
