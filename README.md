@@ -8,7 +8,7 @@ The code can replicate the results from the original paper using the same data s
 **main_fama_bliss & main_danish**:
 
 These modules are as the name indicates, the main python files to execute the model.
-They load datasets CRSP & Bloomberg respectively. Both are licensed data sources, thus
+They load data from CRSP & Bloomberg respectively. Both are licensed data sources, thus
 one needs access to both in order to replicate the data (we provide precise explanations, index names and date of data in the master thesis)
 
 **Dependencies:** 
