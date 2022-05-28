@@ -23,7 +23,8 @@ def AFNS_yieldadjterm(s11,s12,s13,s21,s22,s23,s31,s32,s33,l,t):
     Dtilde = s11*s21+s12*s22+s13*s23
     Etilde = s11*s31+s12*s32+s13*s33
     Ftilde = s21*s31+s22*s32+s23*s33
-    term1 = np.multiply(np.power(t,2)/6,Atilde)
+    # since the sigma matrix is restricted to only have values in the diagonal in the independent factor AFNS we only use these
+    term1 = np.multiply(np.power(t,2)/6,Atilde) 
     term2 = Btilde*(1/(2*l**2)-(1-np.exp(np.multiply(t,-l)))/ \
         (np.multiply(t,np.power(l,3)))+(1-np.exp(-2*np.multiply(t,l)))/ \
         (4*np.multiply(t,np.power(l,3))))
@@ -32,6 +33,7 @@ def AFNS_yieldadjterm(s11,s12,s13,s21,s22,s23,s31,s32,s33,l,t):
         3*np.exp(-2*np.multiply(t,l))/(4*l**2)-2*(1-np.exp(np.multiply(t,-l)))/ \
         (np.multiply(t,np.power(l,3)))+5*(1-np.exp(-2*np.multiply(t,l)))/ \
         (8*np.multiply(t,np.power(l,3))))
+    # but we also apply these such that the model can be expanded to a correlated factor AFNS
     term4 = Dtilde*(np.divide(t,2*l)+np.exp(np.multiply(t,-l)) \
         /(l**2)-(1-np.exp(np.multiply(t,-l)))/ \
         (np.multiply(t,np.power(l,3))))
