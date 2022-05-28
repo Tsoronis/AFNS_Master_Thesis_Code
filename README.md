@@ -1,4 +1,4 @@
-# Master's Thesis Code, provided by Jakob Meldgaard & Alexandros Bøgeskov-Tsoronis, University of Copehagen
+# Master's Thesis Code, provided by Jakob Meldgaard & Alexandros Bøgeskov-Tsoronis
 
 Our master's thesis is titled **A Technical Analysis of the Arbitrage-Free
 Nelson-Siegel Model** where we dicuss the "hands-on" implementation of the Arbitrage Free Nelson Siegel (AFNS).
