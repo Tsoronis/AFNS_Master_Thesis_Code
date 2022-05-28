@@ -2,7 +2,7 @@ import random
 
 # Use random lib to make uniform random guess for each parameter
 # Multiple for loops since different groups of paramters have different
-# economic relevance
+# Economic relevance
 
 # create random geuss for independent AFNS
 def random_constrained_geuss(t):
