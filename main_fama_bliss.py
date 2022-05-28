@@ -1,4 +1,4 @@
-# Import dependcies
+# Import dependcies,
 import pandas as pd # The best dataframe module
 import numpy as np # The best module for numerical calculations
 from scipy import linalg # nice linear algebra features
