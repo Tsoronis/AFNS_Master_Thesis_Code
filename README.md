@@ -24,7 +24,8 @@ the selected Nelder-Mead algorithm is time-consuming. Thus we suggest trying oth
 testing whether more restrictions to the model could help the robustness of estimation.
 There is also room for improvement in terms of error handlers, especially regarding estimating the standard errors.
 
-**Model Reference**
+**Model Reference**:
+
 Christensen, J. H., Diebold, F. X., & Rudebusch, G. D. (2011). The affine arbitrage-
 free class of nelson–siegel term structure models. Journal of Econometrics, 164 (1),
 4–20.
