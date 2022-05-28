@@ -67,7 +67,8 @@ def  independent_AFNS(par_guess, zcb_yield):
     errors = np.diag(par_List[10:10+len(t)])
     S_matrix = abs(S_matrix)
     k_mat_matrix = abs(k_matrix)
-
+    
+    # calculate using the analytical solutions provided in Fisher and Gilles (1996)
     # Eigenvalue and Eigenvector of kappa
     eigen_val,eigen_vec = np.linalg.eig(k_mat_matrix)
     idx = eigen_val.argsort()[::-1] # sort eigen values and vector (not auto in python)
