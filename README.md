@@ -5,13 +5,13 @@ Nelson-Siegel Model** where we dicuss the "hands-on" implementation of the Arbit
 We explain the model in depth, implement it with the use of python and test it in a Danish setting.
 The code can replicate the results from the original paper using the same data set fairly accurate (see reference below & our thesis).
 
-**main_fama_bliss & main_danish**:
+**main_fama_bliss & main_danish:**
 
 These modules are as the name indicates, the main python files to execute the model.
 They load data from CRSP & Bloomberg respectively. Both are licensed data sources, thus
 one needs access to both in order to replicate the data (we provide precise explanations, index names and the date range of time series in the master thesis)
 
-**Dependencies:** 
+**Dependencies:**
 
 Apart from a standard Anaconda Python 3 installation (Version 4.12.0, with no single module upgrades), the project requires the following installations:
 
@@ -21,14 +21,14 @@ Apart from a standard Anaconda Python 3 installation (Version 4.12.0, with no si
 **Other dependencies can be downloaded from this repository like yield_adj_term.py, Chart.py etc.**
 **Anaconda Python 3 installation includes NumPy, pandas, scipy, matplotlib, and sklearn which are used in the above modules**
 
-**Possible improvements**:
+**Possible improvements:**
 
 The main caveat is, that it is difficult to find convergence in the maximum likelihood estimation and
 the selected Nelder-Mead algorithm is time-consuming. Thus we suggest trying other algorithms and 
 testing whether more restrictions to the model could help the robustness of estimation.
 There is also room for improvement in terms of error handlers, especially regarding estimating the standard errors.
 
-**Model Reference**:
+**Model Reference:**
 
 Christensen, J. H., Diebold, F. X., & Rudebusch, G. D. (2011). The affine arbitrage-
 free class of nelson–siegel term structure models. Journal of Econometrics, 164 (1),
